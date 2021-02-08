@@ -4,8 +4,8 @@ import cv2
 cam = cv2.VideoCapture(0)
 face = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
-known_distance = 40
-known_width = 12
+known_distance = 40  # kameraya uzaklik
+known_width = 12   # yüzünüzün ortalam genisligi
 
 def focal_length(measured_distance, real_width, width_in_rf_image):
    focal_length = (width_in_rf_image * measured_distance)/ real_width
@@ -28,6 +28,8 @@ ref_image = cv2.imread('fotom.jpg')
 ref_image_face_width = face_data(ref_image)
 focal_length_found = focal_length(known_distance,known_width,ref_image_face_width)
 fonts = cv2.FONT_HERSHEY_COMPLEX
+
+
 
 while True: 
   _,goruntu = cam.read()
